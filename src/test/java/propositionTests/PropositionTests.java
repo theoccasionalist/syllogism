@@ -1,4 +1,4 @@
-package syllogismTests;
+package propositionTests;
 
 import static org.junit.Assert.assertEquals;
 
@@ -11,7 +11,7 @@ import syllogismPropositions.IProposition;
 import syllogismPropositions.OProposition;
 
 
-public class universalTests {
+public class PropositionTests {
 	
 	@Test
 	public void shouldCreateAProposition () {
