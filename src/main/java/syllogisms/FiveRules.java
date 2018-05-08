@@ -15,6 +15,14 @@ public class FiveRules {
 		return syllogisms.values();
 	}
 	
+	public Syllogism getIndividualSyllogism(String name) {
+		for (Syllogism syllogism : syllogisms.values()) {
+			if (syllogism.getSyllogismName().equals(name)) {
+				return syllogism;
+			}
+		} return null;
+	}
+	
 	public Boolean Rule1() {
 		for (Syllogism syllogism : syllogisms.values()) {
 			if (syllogism.getFigure() == "1" && (syllogism.getMajor1() == "distributed" || syllogism.getMinor1() == "distributed")) {
@@ -47,6 +55,14 @@ public class FiveRules {
 				return true;
 			}
 		} return false;
+	}
+	
+	public Boolean Rule5() {
+		for (Syllogism syllogism : syllogisms.values()) {
+			if (syllogism.getConclusionQuality() == "particular" && syllogism.getMajorQuality() == "universal" && syllogism.getMinorQuality() == "universal") {
+				return false;
+			}
+		} return true;
 	}
 }
 

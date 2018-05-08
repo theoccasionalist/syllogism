@@ -121,5 +121,25 @@ public class syllogismTest {
 		assertEquals(false, testValue);
 	}
 	
+	@Test
+	public void Rule5ShouldReturnFalseForBothAAI1AndEEO3() {
+/*		AProposition testMajor1 = new AProposition();
+		AProposition testMinor1 = new AProposition();
+		IProposition testConclusion1 = new IProposition();
+		Syllogism testSyllogism1 = new Syllogism(testMajor1, testMinor1, testConclusion1, "1");*/
+		
+		EProposition testMajor2 = new EProposition();
+		EProposition testMinor2 = new EProposition();
+		OProposition testConclusion2 = new OProposition();
+		Syllogism testSyllogism2 = new Syllogism(testMajor2, testMinor2, testConclusion2, "3");
+		
+		FiveRules syllogismRepo = new FiveRules();
+		/*syllogismRepo.addSyllogism(testSyllogism1);*/
+		syllogismRepo.addSyllogism(testSyllogism2);
+		Boolean testValue = syllogismRepo.Rule5();
+		
+		assertEquals(false, testValue);
+	}
+	
 	
 }
