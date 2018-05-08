@@ -1,4 +1,4 @@
-package syllogismPropositions;
+package propositions;
 
 public abstract class Proposition {
 	protected String name;
@@ -11,7 +11,7 @@ public abstract class Proposition {
 		this.quality = quality;
 	}
 	
-	public String getName() {
+	public String getSyllogismName() {
 		return name;
 	}
 	
@@ -22,4 +22,20 @@ public abstract class Proposition {
 	public String getQuality() {
 		return quality;
 	}
+	
+	public abstract String getMajor1();
+	
+	public abstract String getMinor1();
+	
+	public abstract String getMajor2();
+	
+	public abstract String getMinor2();
+	
+	public abstract String getMajor3();
+	
+	public abstract String getMinor3();
+	
+	public abstract String getMajor4();
+	
+	public abstract String getMinor4();
 }

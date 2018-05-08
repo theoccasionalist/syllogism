@@ -5,10 +5,10 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import syllogismPropositions.AProposition;
-import syllogismPropositions.EProposition;
-import syllogismPropositions.IProposition;
-import syllogismPropositions.OProposition;
+import propositions.AProposition;
+import propositions.EProposition;
+import propositions.IProposition;
+import propositions.OProposition;
 
 
 public class PropositionTests {
@@ -16,7 +16,7 @@ public class PropositionTests {
 	@Test
 	public void shouldCreateAProposition () {
 		AProposition test = new AProposition();
-		String testName = test.getName();
+		String testName = test.getSyllogismName();
 		String testQuantity = test.getQuantity();
 		String testQuality = test.getQuality();
 		assertEquals(testName, "A");
@@ -27,7 +27,7 @@ public class PropositionTests {
 	@Test
 	public void shouldCreateEProposition () {
 		EProposition test = new EProposition();
-		String testName = test.getName();
+		String testName = test.getSyllogismName();
 		String testQuantity = test.getQuantity();
 		String testQuality = test.getQuality();
 		assertEquals(testName, "E");
@@ -38,7 +38,7 @@ public class PropositionTests {
 	@Test
 	public void shouldCreateIProposition () {
 		IProposition test = new IProposition();
-		String testName = test.getName();
+		String testName = test.getSyllogismName();
 		String testQuantity = test.getQuantity();
 		String testQuality = test.getQuality();
 		assertEquals(testName, "I");
@@ -49,7 +49,7 @@ public class PropositionTests {
 	@Test
 	public void shouldCreateOProposition () {
 		OProposition test = new OProposition();
-		String testName = test.getName();
+		String testName = test.getSyllogismName();
 		String testQuantity = test.getQuantity();
 		String testQuality = test.getQuality();
 		assertEquals(testName, "O");
