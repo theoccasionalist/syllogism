@@ -11,7 +11,7 @@ public abstract class Proposition {
 		this.quality = quality;
 	}
 	
-	public String getSyllogismName() {
+	public String getPropositionName() {
 		return name;
 	}
 	

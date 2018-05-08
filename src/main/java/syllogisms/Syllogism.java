@@ -16,9 +16,9 @@ public class Syllogism {
 	}
 
 	public String getMajorName() {
-		return major.getSyllogismName();
+		return major.getPropositionName();
 	}
-	
+		
 	public String getMajorQuantity() {
 		return major.getQuantity();
 	}
@@ -44,7 +44,7 @@ public class Syllogism {
 	}
 
 	public String getMinorName() {
-		return minor.getSyllogismName();
+		return minor.getPropositionName();
 	}
 	
 	public String getMinorQuantity() {
@@ -72,7 +72,7 @@ public class Syllogism {
 	}
 
 	public String getConclusionName() {
-		return conclusion.getSyllogismName();
+		return conclusion.getPropositionName();
 	}
 	
 	public String getConclusionQuantity() {
@@ -88,7 +88,7 @@ public class Syllogism {
 	}
 	
 	public String getSyllogismName() {
-		String syllogismName = major.getSyllogismName() + minor.getSyllogismName() + conclusion.getSyllogismName() + figure;
+		String syllogismName = major.getPropositionName() + minor.getPropositionName() + conclusion.getPropositionName() + figure;
 		return syllogismName;
 	}
 }

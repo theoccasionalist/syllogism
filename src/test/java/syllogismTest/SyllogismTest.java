@@ -11,7 +11,7 @@ import propositions.OProposition;
 import syllogisms.FiveRules;
 import syllogisms.Syllogism;
 
-public class syllogismTest {
+public class SyllogismTest {
 
 	@Test
 	public void shouldShowSyllogismNameAndMajorAndMinorAndConclusion() {
@@ -30,12 +30,12 @@ public class syllogismTest {
 		AProposition testConclusion = new AProposition();
 		Syllogism testSyllogism = new Syllogism(testMajor, testMinor, testConclusion, "1");
 		
-		FiveRules syllogismRepo = new FiveRules();
-		syllogismRepo.addSyllogism(testSyllogism);
-		Boolean testValue = syllogismRepo.Rule1();
+		FiveRules testRules = new FiveRules(testSyllogism);
+		Boolean testValue = testRules.Rule1();
 		
 		assertEquals(true, testValue);
 	}
+
 	
 	@Test
 	public void Rule1ShouldReturnFalseForIII3() {
@@ -44,9 +44,8 @@ public class syllogismTest {
 		IProposition testConclusion = new IProposition();
 		Syllogism testSyllogism = new Syllogism(testMajor, testMinor, testConclusion, "3");
 		
-		FiveRules syllogismRepo = new FiveRules();
-		syllogismRepo.addSyllogism(testSyllogism);
-		Boolean testValue = syllogismRepo.Rule1();
+		FiveRules testRules = new FiveRules(testSyllogism);
+		Boolean testValue = testRules.Rule1();
 		
 		assertEquals(false, testValue);
 	}
@@ -58,9 +57,8 @@ public class syllogismTest {
 		OProposition testConclusion = new OProposition();
 		Syllogism testSyllogism = new Syllogism(testMajor, testMinor, testConclusion, "4");
 		
-		FiveRules syllogismRepo = new FiveRules();
-		syllogismRepo.addSyllogism(testSyllogism);
-		Boolean testValue = syllogismRepo.Rule3();
+		FiveRules testRules = new FiveRules(testSyllogism);
+		Boolean testValue = testRules.Rule3();
 		
 		assertEquals(true, testValue);	
 		}
@@ -72,9 +70,8 @@ public class syllogismTest {
 		IProposition testConclusion = new IProposition();
 		Syllogism testSyllogism = new Syllogism(testMajor, testMinor, testConclusion, "2");
 	
-		FiveRules syllogismRepo = new FiveRules();
-		syllogismRepo.addSyllogism(testSyllogism);
-		Boolean testValue = syllogismRepo.Rule3();
+		FiveRules testRules = new FiveRules(testSyllogism);
+		Boolean testValue = testRules.Rule3();
 		
 		assertEquals(false, testValue);
 	}
@@ -86,9 +83,8 @@ public class syllogismTest {
 		OProposition testConclusion = new OProposition();
 		Syllogism testSyllogism = new Syllogism(testMajor, testMinor, testConclusion, "1"); 
 		
-		FiveRules syllogismRepo = new FiveRules();
-		syllogismRepo.addSyllogism(testSyllogism);
-		Boolean testValue = syllogismRepo.Rule4();
+		FiveRules testRules = new FiveRules(testSyllogism);
+		Boolean testValue = testRules.Rule4();
 		
 		assertEquals(true, testValue);
 	}
@@ -100,10 +96,8 @@ public class syllogismTest {
 		AProposition testConclusion = new AProposition();
 		Syllogism testSyllogism = new Syllogism(testMajor, testMinor, testConclusion, "2");
 		
-		FiveRules syllogismRepo = new FiveRules();
-		syllogismRepo.addSyllogism(testSyllogism);
-		Boolean testValue = syllogismRepo.Rule4();
-		
+		FiveRules testRules = new FiveRules(testSyllogism);
+		Boolean testValue = testRules.Rule4();
 		assertEquals(false, testValue);
 	}
 	
@@ -114,32 +108,51 @@ public class syllogismTest {
 		EProposition testConclusion = new EProposition();
 		Syllogism testSyllogism = new Syllogism(testMajor, testMinor, testConclusion, "1");
 		
-		FiveRules syllogismRepo = new FiveRules();
-		syllogismRepo.addSyllogism(testSyllogism);
-		Boolean testValue = syllogismRepo.Rule4();
+		FiveRules testRules = new FiveRules(testSyllogism);
+		Boolean testValue = testRules.Rule4();
 		
 		assertEquals(false, testValue);
 	}
 	
 	@Test
+	public void Rule5ShouldReturnTrueForBothAII2AndEOE4() {
+		AProposition testMajor1 = new AProposition();
+		IProposition testMinor1 = new IProposition();
+		IProposition testConclusion1 = new IProposition();
+		Syllogism testSyllogism1 = new Syllogism(testMajor1, testMinor1, testConclusion1, "2");
+		
+		EProposition testMajor2 = new EProposition();
+		OProposition testMinor2 = new OProposition();
+		EProposition testConclusion2 = new EProposition();
+		Syllogism testSyllogism2 =  new Syllogism(testMajor2, testMinor2, testConclusion2, "4");
+		
+		FiveRules testRules1 = new FiveRules(testSyllogism1);
+		FiveRules testRules2 = new FiveRules(testSyllogism2);
+		Boolean testValue1 = testRules1.Rule5();
+		Boolean testValue2 = testRules2.Rule5();
+		
+		assertEquals(true, testValue1);
+		assertEquals(true, testValue2);
+	}
+	
+	@Test
 	public void Rule5ShouldReturnFalseForBothAAI1AndEEO3() {
-/*		AProposition testMajor1 = new AProposition();
+		AProposition testMajor1 = new AProposition();
 		AProposition testMinor1 = new AProposition();
 		IProposition testConclusion1 = new IProposition();
-		Syllogism testSyllogism1 = new Syllogism(testMajor1, testMinor1, testConclusion1, "1");*/
+		Syllogism testSyllogism1 = new Syllogism(testMajor1, testMinor1, testConclusion1, "1");
 		
 		EProposition testMajor2 = new EProposition();
 		EProposition testMinor2 = new EProposition();
 		OProposition testConclusion2 = new OProposition();
 		Syllogism testSyllogism2 = new Syllogism(testMajor2, testMinor2, testConclusion2, "3");
 		
-		FiveRules syllogismRepo = new FiveRules();
-		/*syllogismRepo.addSyllogism(testSyllogism1);*/
-		syllogismRepo.addSyllogism(testSyllogism2);
-		Boolean testValue = syllogismRepo.Rule5();
+		FiveRules testRules1 = new FiveRules(testSyllogism1);
+		FiveRules testRules2 = new FiveRules(testSyllogism2);
+		Boolean testValue1 = testRules1.Rule5();
+		Boolean testValue2 = testRules2.Rule5();
 		
-		assertEquals(false, testValue);
-	}
-	
-	
+		assertEquals(false, testValue1);
+		assertEquals(false, testValue2);
+	}	
 }
