@@ -4,9 +4,9 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 
-import static org.hamcrest.Matchers.is;
+import Matt.Syllogism.SyllogismController;
 
-import controllers.SyllogismController;
+import static org.hamcrest.Matchers.is;
 
 public class ControllerTests {
 
