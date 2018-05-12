@@ -13,7 +13,7 @@ public class ControllerTests {
 		@Test
 		public void ShouldReturnSyllogismView () {
 			SyllogismController testController = new SyllogismController();
-			String testReturn = testController.shouldDisplaySyllogismsView();
+			String testReturn = testController.displaySyllogismsView();
 					
 			assertThat(testReturn, is("syllogisms"));
 		}

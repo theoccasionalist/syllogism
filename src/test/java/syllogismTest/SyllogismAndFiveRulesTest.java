@@ -5,13 +5,15 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import propositions.AProposition;
+import propositions.DetermineProposition;
 import propositions.EProposition;
 import propositions.IProposition;
 import propositions.OProposition;
+import propositions.Proposition;
 import syllogisms.FiveRules;
 import syllogisms.Syllogism;
 
-public class SyllogismTest {
+public class SyllogismAndFiveRulesTest {
 
 	@Test
 	public void shouldShowSyllogismNameAndMajorAndMinorAndConclusion() {
@@ -154,5 +156,25 @@ public class SyllogismTest {
 		
 		assertEquals(false, testValue1);
 		assertEquals(false, testValue2);
+	}
+		
+	@Test
+	public void ShouldMakePropositionsWithStringInput() {
+		DetermineProposition test1 = new DetermineProposition();
+		Proposition aProposition = test1.makeProposition("A");
+		
+		DetermineProposition test2 = new DetermineProposition();
+		Proposition eProposition = test2.makeProposition("E");
+		
+		DetermineProposition test3 = new DetermineProposition();
+		Proposition iProposition = test3.makeProposition("I");
+		
+		DetermineProposition test4 = new DetermineProposition();
+		Proposition oProposition = test4.makeProposition("O");
+		
+		assertEquals("A", aProposition.getPropositionName());
+		assertEquals("E", eProposition.getPropositionName());
+		assertEquals("I", iProposition.getPropositionName());
+		assertEquals("O", oProposition.getPropositionName());
 	}	
 }
