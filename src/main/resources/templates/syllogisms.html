@@ -10,9 +10,10 @@
 		<h1>Syllogisms</h1>
 	</header>
 <main>
+<form action="/add-syllogism">
 
 	<label for="major-premise">Major Premise Proposition Type:</label>
-	<select class="major-premise" name="major-premise" required="true">
+	<select class="major-premise" name="majorPremiseInput" required="true">
 		<option selected="major-premise" disabled="true" hidden="true" value="">Select...</option>
 		<option value="A">A</option>
 		<option value="E">E</option>
@@ -23,7 +24,7 @@
 	<br/>
 
 	<label for="minor-premise">Minor Premise Proposition Type:</label>
-	<select class="minor-premise" name="minor-premise" required="true">
+	<select class="minor-premise" name="minorPremiseInput" required="true">
 		<option selected="minor-premise" disabled="true" hidden="true" value="">Select...</option>
 		<option value="A">A</option>
 		<option value="E">E</option>
@@ -34,7 +35,7 @@
 	<br/>
 
 	<label for="conclusion">Conclusion Proposition Type:</label>
-	<select class="conclusion" name="conclusion" required="true">
+	<select class="conclusion" name="conclusionInput" required="true">
 		<option selected="conclusion" disabled="true" hidden="true" value="">Select...</option>
 		<option value="A">A</option>
 		<option value="E">E</option>
@@ -47,13 +48,21 @@
 	<label for="figure">Figure:</label>
 	<select class="figure" name="figure" required="true">
 		<option selected="figure" disabled="true" hidden="true" value="">Select...</option>
-		<option value="A">1</option>
-		<option value="B">2</option>
-		<option value="C">3</option>
-		<option value="D">4</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
 	</select>
+	
+	<section th:each="syllogism : ${syllogismRepo}">
+		<p th:text="${syllogism.SyllogismName}"></p>
+	</section>
+	
+	<input type="submit"></input>
 
 	<br/>
+
+</form>
 
 </main>
 

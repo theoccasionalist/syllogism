@@ -4,7 +4,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import propositions.AProposition;
 import propositions.DetermineProposition;
+import propositions.IProposition;
+import propositions.OProposition;
 import propositions.Proposition;
 import syllogisms.Syllogism;
 import syllogisms.SyllogismTempRepo;
@@ -12,8 +15,17 @@ import syllogisms.SyllogismTempRepo;
 @Controller
 public class SyllogismController {
 	
+	SyllogismTempRepo repo = new SyllogismTempRepo();
+	
+	
 	@RequestMapping("/syllogisms")
-	public String displaySyllogismsView() {
+	public String displaySyllogismsView(Model model) {
+		AProposition aProp = new AProposition();
+		IProposition iProp = new IProposition();
+		OProposition oProp = new OProposition();
+		Syllogism testSyllogism = new Syllogism(aProp, iProp, oProp, "4");
+		repo.addSyllogism(testSyllogism);
+		model.addAttribute("syllogismRepo", repo.individualSyllogisms());
 		return "syllogisms";
 	}
 	
@@ -24,9 +36,7 @@ public class SyllogismController {
 			Proposition minorPremise = determineProposition.makeProposition(minorPremiseInput);
 			Proposition conclusion = determineProposition.makeProposition(conclusionInput);
 			Syllogism syllogism = new Syllogism(majorPremise, minorPremise, conclusion, figure);
-//			SyllogismTempRepo repo = new SyllogismTempRepo();
-//			repo.addSyllogism(syllogism);
-			model.addAttribute("syllogism", syllogism);
-			return "redirct: /syllogisms";
+			repo.addSyllogism(syllogism);
+			return "redirect:/syllogisms";
 		}
 }
