@@ -8,38 +8,44 @@ public class FiveRules {
 		this.syllogism = syllogism;
 	}
 	
-	public Boolean Rule1() {
-		if (syllogism.getFigure() == "1" && (syllogism.getMajor1() == "distributed" || syllogism.getMinor1() == "distributed")) {
-			return true;
-		} else if ((syllogism.getFigure() == "2" && (syllogism.getMajor2() == "distributed" || syllogism.getMinor2() == "distributed"))) {
-			return true;
-		} else if ((syllogism.getFigure() == "3" && (syllogism.getMajor3() == "distributed" || syllogism.getMinor3() == "distributed"))) {
-			return true;
-		} else if ((syllogism.getFigure() == "4" && (syllogism.getMajor4() == "distributed" || syllogism.getMinor4() == "distributed"))) {
-			return true;
-		}   return false;
+	public String getFiveRulesSyllogismName() {
+		return syllogism.getSyllogismName();
 	}
 	
-	public Boolean Rule2() {
-		return false;
+	public String getRule1() {
+		if (syllogism.getFigure().equals("1") && (syllogism.getMajor1().equals("distributed") || syllogism.getMinor1().equals("distributed"))) {
+			return "Passes Rule 1";
+		} else if (syllogism.getFigure().equals("2") && (syllogism.getMajor2().equals("distributed") || syllogism.getMinor2().equals("distributed"))) {
+			return "Passes Rule 1";
+		} else if (syllogism.getFigure().equals("3") && (syllogism.getMajor3().equals("distributed") || syllogism.getMinor3().equals("distributed"))) {
+			return "Passes Rule 1";
+		} else if (syllogism.getFigure().equals("4") && (syllogism.getMajor4().equals("distributed") || syllogism.getMinor4().equals("distributed"))) {
+			return "Passes Rule 1";
+		}   return "Breaks Rule 1";
 	}
 	
-	public Boolean Rule3() {
-		if (syllogism.getMajorQuality() == "negative" && syllogism.getMinorQuality() == "negative") {
-			return false;
-		} return true;
+	public String Rule2() {
+		return "Breaks Rule 1";
 	}
 	
-	public Boolean Rule4() {
-		if (syllogism.getConclusionQuality() == "negative" && (syllogism.getMajorQuality() == "negative" || syllogism.getMinorQuality() == "negative")) {
-			return true;
-		} return false;
+	public String getRule3() {
+		if (syllogism.getMajorQuality().equals("negative") && syllogism.getMinorQuality().equals("negative")) {
+			return "Breaks Rule 3";
+		} return "Passes Rule 3";
 	}
 	
-	public Boolean Rule5() {
-		if (syllogism.getConclusionQuantity() == "particular" && syllogism.getMajorQuantity() == "universal" && syllogism.getMinorQuantity() == "universal") {
-			return false;
-		} return true; 
+	public String getRule4() {
+		if (syllogism.getConclusionQuality().equals("negative") && (syllogism.getMajorQuality().equals("negative") || syllogism.getMinorQuality().equals("negative"))) {
+			return "Passes Rule 4";
+		} else if (syllogism.getConclusionQuality().equals("affirmative") && syllogism.getMajorQuality().equals("affirmative") && syllogism.getMinorQuality().equals("affirmative")) { 
+			return "Passes Rule 4";
+		}	return "Breaks Rule 4";	
+	}
+	
+	public String getRule5() {
+		if (syllogism.getConclusionQuantity().equals("particular") && syllogism.getMajorQuantity().equals("universal") && syllogism.getMinorQuantity().equals("universal")) {
+			return "Breaks Rule 5";
+		} return "Passes Rule 5"; 
 	}
 }
 
