@@ -59,13 +59,9 @@
 	<input type="submit"></input>
 
 </form>
+	
+	<p th:each="fiveRules : ${fiveRulesRepo}" th:text="${fiveRules.FiveRulesSyllogismName} + ' ' +  ${fiveRules.Rule1}"></p> 
 
-
-	<p th:each="syllogism : ${syllogismRepo}" th:text="${syllogism.SyllogismName}"></p>
-	<p th:each="fiveRules : ${fiveRulesRepo}" th:text="${fiveRules.Rule1}"></p>
-	<p th:each="fiveRules : ${fiveRulesRepo}" th:text="${fiveRules.Rule3}"></p>
-	<p th:each="fiveRules : ${fiveRulesRepo}" th:text="${fiveRules.Rule4}"></p>
-	<p th:each="fiveRules : ${fiveRulesRepo}" th:text="${fiveRules.Rule5}"></p>
 	<br/>
 
 

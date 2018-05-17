@@ -1,11 +1,11 @@
 package syllogisms;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class FiveRulesTempRepo {
-	Map <String, FiveRules> fiveRulesMap = new HashMap<>();
+	Map <String, FiveRules> fiveRulesMap = new TreeMap<>();
 	
 	public void addFiveRules(FiveRules fiveRules) {
 		fiveRulesMap.put(fiveRules.getFiveRulesSyllogismName(), fiveRules);
