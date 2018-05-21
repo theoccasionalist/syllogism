@@ -4,6 +4,7 @@
 	<meta charset="UTF-8"></meta>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 	<meta http-equiv="X-UA-Compatible" content="ie=edge"></meta>
+	<link rel="stylesheet" type="text/css" href="/style.css"/>
 </head>
 <body class="body">
 	<header>
@@ -59,8 +60,16 @@
 	<input type="submit"></input>
 
 </form>
-	
-	<p th:each="fiveRules : ${fiveRulesRepo}" th:text="${fiveRules.FiveRulesSyllogismName} + ' ' +  ${fiveRules.Rule1}"></p> 
+
+<div id="container">	
+	<div th:each="fiveRules : ${fiveRulesRepo}">
+		<p th:text="${fiveRules.FiveRulesSyllogismName}"></p>
+		<p th:text="'Rule 1: ' + ${fiveRules.Rule1}"></p>
+		<p th:text="'Rule 3: ' + ${fiveRules.Rule3}"></p>
+		<p th:text="'Rule 4: ' + ${fiveRules.Rule4}"></p>
+		<p th:text="'Rule 5: ' + ${fiveRules.Rule5}"></p>
+	</div>
+</div>	
 
 	<br/>
 
