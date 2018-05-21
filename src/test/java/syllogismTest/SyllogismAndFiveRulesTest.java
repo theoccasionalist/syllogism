@@ -49,8 +49,8 @@ public class SyllogismAndFiveRulesTest {
 		String resultEEE4 = testEEE4.getRule1();
 		
 		
-		assertEquals("Passes Rule 1", resultAAA1);
-		assertEquals("Passes Rule 1", resultEEE4);
+		assertEquals("Rule 1: Passes", resultAAA1);
+		assertEquals("Rule 1: Passes", resultEEE4);
 	}
 
 	
@@ -71,8 +71,66 @@ public class SyllogismAndFiveRulesTest {
 		String testValue = testRules.getRule1();
 		String testValue2 = testRules2.getRule1();
 		
-		assertEquals("Breaks Rule 1", testValue);
-		assertEquals("Breaks Rule 1", testValue2);
+		assertEquals("Rule 1: Fails", testValue);
+		assertEquals("Rule 1: Fails", testValue2);
+	}
+	
+	@Test
+	public void Rule2ShouldPassForAAA1AndIII3AndEEE2() {
+		AProposition testMajor = new AProposition();
+		AProposition testMinor = new AProposition();
+		AProposition testConclusion = new AProposition();
+		Syllogism testSyllogism = new Syllogism(testMajor, testMinor, testConclusion, "1");
+		
+		IProposition testMajor2 = new IProposition();
+		IProposition testMinor2 = new IProposition();
+		IProposition testConclusion2 = new IProposition();
+		Syllogism testSyllogism2 = new Syllogism(testMajor2, testMinor2, testConclusion2, "3");
+		
+		EProposition testMajor3 = new EProposition();
+		EProposition testMinor3 = new EProposition();
+		EProposition testConclusion3 = new EProposition();
+		Syllogism testSyllogism3 = new Syllogism(testMajor3, testMinor3, testConclusion3, "2");
+		
+		FiveRules testRules = new FiveRules(testSyllogism);
+		FiveRules testRules2 = new FiveRules(testSyllogism2);
+		FiveRules testRules3 = new FiveRules(testSyllogism3);
+		String testValue = testRules.getRule2();
+		String testValue2 = testRules2.getRule2();
+		String testValue3 = testRules3.getRule2();
+		
+		assertEquals("Rule 2: Passes", testValue);
+		assertEquals("Rule 2: Passes", testValue2);
+		assertEquals("Rule 2: Passes", testValue3);
+	}
+	
+	@Test
+	public void Rule2ShouldFailForEIA1AndIIO3AndAAE3() {
+		EProposition testMajor = new EProposition();
+		IProposition testMinor = new IProposition();
+		AProposition testConclusion = new AProposition();
+		Syllogism testSyllogism = new Syllogism(testMajor, testMinor, testConclusion, "1");
+		
+		IProposition testMajor2 = new IProposition();
+		IProposition testMinor2 = new IProposition();
+		OProposition testConclusion2 = new OProposition();
+		Syllogism testSyllogism2 = new Syllogism(testMajor2, testMinor2, testConclusion2, "3");
+		
+		AProposition testMajor3 = new AProposition();
+		AProposition testMinor3 = new AProposition();
+		EProposition testConclusion3 = new EProposition();
+		Syllogism testSyllogism3 = new Syllogism(testMajor3, testMinor3, testConclusion3, "3");
+		
+		FiveRules testRules = new FiveRules(testSyllogism);
+		FiveRules testRules2 = new FiveRules(testSyllogism2);
+		FiveRules testRules3 = new FiveRules(testSyllogism3);
+		String testValue = testRules.getRule2();
+		String testValue2 = testRules2.getRule2();
+		String testValue3 = testRules3.getRule2();
+		
+		assertEquals("Rule 2: Fails", testValue);
+		assertEquals("Rule 2: Fails", testValue2);
+		assertEquals("Rule 2: Fails", testValue3);
 	}
 	
 	@Test
@@ -92,8 +150,8 @@ public class SyllogismAndFiveRulesTest {
 		String testValue1 = testRules.getRule3();
 		String testValue2 = testRules2.getRule3();
 		
-		assertEquals("Passes Rule 3", testValue1);
-		assertEquals("Passes Rule 3", testValue2);
+		assertEquals("Rule 3: Passes", testValue1);
+		assertEquals("Rule 3: Passes", testValue2);
 	}
 	
 	@Test
@@ -113,8 +171,8 @@ public class SyllogismAndFiveRulesTest {
 		String testValue = testRules.getRule3();
 		String testValue2 = testRules2.getRule3();
 		
-		assertEquals("Breaks Rule 3", testValue);
-		assertEquals("Breaks Rule 3", testValue2);
+		assertEquals("Rule 3: Fails", testValue);
+		assertEquals("Rule 3: Fails", testValue2);
 	}
 	
 	@Test
@@ -135,8 +193,8 @@ public class SyllogismAndFiveRulesTest {
 		String testValue = testRules.getRule4();
 		String testValue2 = testRules2.getRule4();
 		
-		assertEquals("Passes Rule 4", testValue);
-		assertEquals("Passes Rule 4", testValue2);
+		assertEquals("Rule 4: Passes", testValue);
+		assertEquals("Rule 4: Passes", testValue2);
 	}
 	
 	@Test
@@ -156,8 +214,8 @@ public class SyllogismAndFiveRulesTest {
 		String testValue = testRules.getRule4();
 		String testValue2 = testRules2.getRule4();
 		
-		assertEquals("Breaks Rule 4", testValue);
-		assertEquals("Breaks Rule 4", testValue2);
+		assertEquals("Rule 4: Fails", testValue);
+		assertEquals("Rule 4: Fails", testValue2);
 	}
 	
 		
@@ -178,8 +236,8 @@ public class SyllogismAndFiveRulesTest {
 		String testValue1 = testRules1.getRule5();
 		String testValue2 = testRules2.getRule5();
 		
-		assertEquals("Passes Rule 5", testValue1);
-		assertEquals("Passes Rule 5", testValue2);
+		assertEquals("Rule 5: Passes", testValue1);
+		assertEquals("Rule 5: Passes", testValue2);
 	}
 	
 	@Test
@@ -199,8 +257,8 @@ public class SyllogismAndFiveRulesTest {
 		String testValue1 = testRules1.getRule5();
 		String testValue2 = testRules2.getRule5();
 		
-		assertEquals("Breaks Rule 5", testValue1);
-		assertEquals("Breaks Rule 5", testValue2);
+		assertEquals("Rule 5: Fails", testValue1);
+		assertEquals("Rule 5: Fails", testValue2);
 	}
 		
 	@Test

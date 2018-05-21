@@ -33,12 +33,13 @@ public class FiveRules {
 			if (Rule2MajorSubMethod() && Rule2MinorSubMethod()) {
 				return "Rule 2: Passes";
 			}
+		} else if (syllogism.getConclusionName().equals("I")) {
+				return "Rule 2: Passes";
 		} else if (syllogism.getConclusionName().equals("O")) {
 			if (Rule2MajorSubMethod()) {
 				return "Rule 2: Passes";
 			}
-		}
-		return "Rule 2: Fails";
+		} return "Rule 2: Fails";
 	}
 	
 	public Boolean Rule2MajorSubMethod() {
