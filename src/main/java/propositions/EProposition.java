@@ -44,5 +44,41 @@ public class EProposition extends Proposition {
 	public String getMinor4() {
 		return "distributed";
 	}
-}
+	
+	public String getContraryName() {
+		return "A";
+	}
+	
+	public String contraryTruthValue(String truthValue) {
+		if (truthValue.equalsIgnoreCase("true")) {
+			return "False";
+		} 
+		return "Undetermined";
+	}
 
+	@Override
+	public String getContradictionName() {
+		return "I";
+	}
+
+	@Override
+	public String contradictionTruthValue(String truthValue) {
+		if (truthValue.equalsIgnoreCase("true")) {
+			return "False";
+		}
+		return "True";
+	}
+
+	@Override
+	public String getSubaltName() {
+		return "O";
+	}
+
+	@Override
+	public String subaltTruthValue(String truthValue) {
+		if (truthValue.equalsIgnoreCase("True")) {
+			return "True";
+		}
+		return "Undetermined";
+	}
+}

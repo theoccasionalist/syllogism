@@ -38,4 +38,14 @@ public abstract class Proposition {
 	public abstract String getMajor4();
 	
 	public abstract String getMinor4();
+	
+	public abstract String getContradictionName();
+	
+	public abstract String contradictionTruthValue(String truthValue);
+	
+	public abstract String getSubaltName();
+	
+	public abstract String subaltTruthValue(String truthValue);
+	
+	
 }

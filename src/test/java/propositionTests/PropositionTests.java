@@ -2,7 +2,6 @@ package propositionTests;
 
 import static org.junit.Assert.assertEquals;
 
-
 import org.junit.Test;
 
 import propositions.AProposition;
@@ -55,5 +54,42 @@ public class PropositionTests {
 		assertEquals(testName, "O");
 		assertEquals(testQuantity, "particular");
 		assertEquals(testQuality, "negative");
+	}
+	
+	@Test
+	public void shouldReturnContrayInfoForAProposition() {
+		AProposition testProposition = new AProposition();
+		String testContraryName = testProposition.getContraryName();
+		String testContraryTrue = testProposition.contraryTruthValue("True");
+		String testContraryFalse = testProposition.contraryTruthValue("False");
+		
+		assertEquals(testContraryName, "E");
+		assertEquals(testContraryTrue, "False");
+		assertEquals(testContraryFalse, "Undetermined");
+	}
+	
+	@Test
+	public void shouldReturnContradictionInfoForAProposition() {
+		AProposition testProposition = new AProposition();
+		String testContradictionName = testProposition.getContradictionName();
+		String testContradictionTrue = testProposition.contradictionTruthValue("True");
+		String testContradictionFalse = testProposition.contradictionTruthValue("False");
+		
+		assertEquals(testContradictionName, "O");
+		assertEquals(testContradictionTrue, "False");
+		assertEquals(testContradictionFalse, "True");
+	}
+	
+	@Test
+	public void shouldReturnSubAltInfoForAProposition() {
+		AProposition testProposition = new AProposition();
+		String testSubaltName = testProposition.getSubaltName();
+		String testSubaltTrue = testProposition.subaltTruthValue("true");
+		String testSubaltFalse = testProposition.subaltTruthValue("False");
+		
+		assertEquals(testSubaltName, "I");
+		assertEquals(testSubaltTrue, "True");
+		assertEquals(testSubaltFalse, "Undetermined");
+		
 	}
 }
