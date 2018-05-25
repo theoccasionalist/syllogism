@@ -129,4 +129,41 @@ public class PropositionTests {
 		assertEquals(testSubaltFalse, "Undetermined");
 		
 	}
+	
+	@Test
+	public void shouldReturnSubcontrayInfoForIProposition() {
+		IProposition testProposition = new IProposition();
+		String testSubcontraryName = testProposition.getSubcontraryName();
+		String testSubcontraryTrue = testProposition.subcontraryTruthValue("True");
+		String testSubcontraryFalse = testProposition.subcontraryTruthValue("False");
+		
+		assertEquals(testSubcontraryName, "O");
+		assertEquals(testSubcontraryTrue, "Undetermined");
+		assertEquals(testSubcontraryFalse, "True");
+	}
+	
+	@Test
+	public void shouldReturnContradictionInfoForIProposition() {
+		IProposition testProposition = new IProposition();
+		String testContradictionName = testProposition.getContradictionName();
+		String testContradictionTrue = testProposition.contradictionTruthValue("True");
+		String testContradictionFalse = testProposition.contradictionTruthValue("False");
+		
+		assertEquals(testContradictionName, "E");
+		assertEquals(testContradictionTrue, "False");
+		assertEquals(testContradictionFalse, "True");
+	}
+	
+	@Test
+	public void shouldReturnSubAltInfoForIProposition() {
+		IProposition testProposition = new IProposition();
+		String testSubaltName = testProposition.getSubaltName();
+		String testSubaltTrue = testProposition.subaltTruthValue("true");
+		String testSubaltFalse = testProposition.subaltTruthValue("False");
+		
+		assertEquals(testSubaltName, "A");
+		assertEquals(testSubaltTrue, "Undetermined");
+		assertEquals(testSubaltFalse, "False");
+		
+	}
 }

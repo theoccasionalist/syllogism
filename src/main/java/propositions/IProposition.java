@@ -44,4 +44,41 @@ public class IProposition extends Proposition {
 	public String getMinor4() {
 		return "undistributed";
 	}
+	
+	public String getSubcontraryName() {
+		return "O";
+	}
+	
+	public String subcontraryTruthValue(String truthValue) {
+		if (truthValue.equalsIgnoreCase("False")) {
+			return "True";
+		}
+		return "Undetermined";
+	}
+
+	@Override
+	public String getContradictionName() {
+		return "E";
+	}
+
+	@Override
+	public String contradictionTruthValue(String truthValue) {
+		if (truthValue.equalsIgnoreCase("true")) {
+			return "False";
+		} 
+		return "True";
+	}
+
+	@Override
+	public String getSubaltName() {
+		return "A";
+	}
+
+	@Override
+	public String subaltTruthValue(String truthValue) {
+		if (truthValue.equalsIgnoreCase("False")) {
+			return "False";
+		}
+		return "Undetermined";
+	}	
 }
