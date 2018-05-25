@@ -92,4 +92,41 @@ public class PropositionTests {
 		assertEquals(testSubaltFalse, "Undetermined");
 		
 	}
+	
+	@Test
+	public void shouldReturnContrayInfoForEProposition() {
+		EProposition testProposition = new EProposition();
+		String testContraryName = testProposition.getContraryName();
+		String testContraryTrue = testProposition.contraryTruthValue("True");
+		String testContraryFalse = testProposition.contraryTruthValue("False");
+		
+		assertEquals(testContraryName, "A");
+		assertEquals(testContraryTrue, "False");
+		assertEquals(testContraryFalse, "Undetermined");
+	}
+	
+	@Test
+	public void shouldReturnContradictionInfoForEProposition() {
+		EProposition testProposition = new EProposition();
+		String testContradictionName = testProposition.getContradictionName();
+		String testContradictionTrue = testProposition.contradictionTruthValue("True");
+		String testContradictionFalse = testProposition.contradictionTruthValue("False");
+		
+		assertEquals(testContradictionName, "I");
+		assertEquals(testContradictionTrue, "False");
+		assertEquals(testContradictionFalse, "True");
+	}
+	
+	@Test
+	public void shouldReturnSubAltInfoForEProposition() {
+		EProposition testProposition = new EProposition();
+		String testSubaltName = testProposition.getSubaltName();
+		String testSubaltTrue = testProposition.subaltTruthValue("true");
+		String testSubaltFalse = testProposition.subaltTruthValue("False");
+		
+		assertEquals(testSubaltName, "O");
+		assertEquals(testSubaltTrue, "True");
+		assertEquals(testSubaltFalse, "Undetermined");
+		
+	}
 }
