@@ -12,7 +12,7 @@ public class FiveRules {
 		return syllogism.getSyllogismName();
 	}
 	
-	public String Rule1() {
+	public String rule1() {
 		if (syllogism.getFigure().equals("1") && (syllogism.getMajor1().equals("distributed") || syllogism.getMinor1().equals("distributed"))) {
 			return "Rule 1: Passes";
 		} else if (syllogism.getFigure().equals("2") && (syllogism.getMajor2().equals("distributed") || syllogism.getMinor2().equals("distributed"))) {
@@ -24,25 +24,25 @@ public class FiveRules {
 		}   return "Rule 1: Fails";
 	}
 		
-	public String Rule2() {
+	public String rule2() {
 		if (syllogism.getConclusionName().equals("A")) {
-			if (Rule2MinorSubMethod()) {
+			if (rule2MinorSubMethod()) {
 				return "Rule 2: Passes";
 			}
 		} else if (syllogism.getConclusionName().equals("E")) {
-			if (Rule2MajorSubMethod() && Rule2MinorSubMethod()) {
+			if (rule2MajorSubMethod() && rule2MinorSubMethod()) {
 				return "Rule 2: Passes";
 			}
 		} else if (syllogism.getConclusionName().equals("I")) {
 				return "Rule 2: Passes";
 		} else if (syllogism.getConclusionName().equals("O")) {
-			if (Rule2MajorSubMethod()) {
+			if (rule2MajorSubMethod()) {
 				return "Rule 2: Passes";
 			}
 		} return "Rule 2: Fails";
 	}
 	
-	public Boolean Rule2MajorSubMethod() {
+	public Boolean rule2MajorSubMethod() {
 		if (syllogism.getMajorName().equals("A") && (syllogism.getFigure().equals("2") || syllogism.getFigure().equals("4"))) {
 			return true;
 		} else if (syllogism.getMajorName().equals("E")) {
@@ -52,7 +52,7 @@ public class FiveRules {
 		} return false;
 	}
 	
-	public Boolean Rule2MinorSubMethod() {
+	public Boolean rule2MinorSubMethod() {
 		if (syllogism.getMinorName().equals("A") && (syllogism.getFigure().equals("1") || syllogism.getFigure().equals("2"))) {
 			return true;
 		} else if (syllogism.getMinorName().equals("E")) {
@@ -62,13 +62,13 @@ public class FiveRules {
 		} return false; 
 	}
 	
-	public String Rule3() {
+	public String rule3() {
 		if (syllogism.getMajorQuality().equals("negative") && syllogism.getMinorQuality().equals("negative")) {
 			return "Rule 3: Fails";
 		} return "Rule 3: Passes";
 	}
 	
-	public String Rule4() {
+	public String rule4() {
 		if (syllogism.getConclusionQuality().equals("negative") && (syllogism.getMajorQuality().equals("negative") || syllogism.getMinorQuality().equals("negative"))) {
 			return "Rule 4: Passes";
 		} else if (syllogism.getConclusionQuality().equals("affirmative") && syllogism.getMajorQuality().equals("affirmative") && syllogism.getMinorQuality().equals("affirmative")) { 
@@ -76,30 +76,42 @@ public class FiveRules {
 		}	return "Rule 4: Fails";	
 	}
 	
-	public String Rule5() {
+	public String rule5() {
 		if (syllogism.getConclusionQuantity().equals("particular") && syllogism.getMajorQuantity().equals("universal") && syllogism.getMinorQuantity().equals("universal")) {
 			return "Rule 5: Fails";
 		} return "Rule 5: Passes"; 
 	}
 	
+	public String validity() {
+		if (rule1().contains("Passes") && rule2().contains("Passes") && rule3().contains("Passes") && rule4().contains("Passes") & rule5().contains("Fails")) {
+			return "Conditionally Valid";
+		} else if (rule1().contains("Passes") && rule2().contains("Passes") && rule3().contains("Passes") && rule4().contains("Passes") & rule5().contains("Passes")) {
+			return "Unconditionally Valid";
+		} return "Invalid";
+	}
+	
 	public String getRule1() {
-		return this.Rule1();
+		return this.rule1();
 	}
 	
 	public String getRule2() {
-		return this.Rule2();
+		return this.rule2();
 	}
 	
 	public String getRule3() {
-		return this.Rule3();
+		return this.rule3();
 	}
 	
 	public String getRule4() {
-		return this.Rule4();
+		return this.rule4();
 	}
 	
 	public String getRule5() {
-		return this.Rule5();
+		return this.rule5();
+	}
+	
+	public String getValidity() {
+		return this.validity();
 	}
 }
 

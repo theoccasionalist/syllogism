@@ -11,7 +11,7 @@
 		<h1>Syllogisms</h1>
 	</header>
 <main>
-<form action="/add-syllogism">
+<form action="/add-syllogism" class="input">
 
 	<label for="major-premise">Major Premise Proposition Type:</label>
 	<select class="major-premise" name="majorPremiseInput" required="true">
@@ -62,13 +62,14 @@
 </form>
 
 <div id="container">	
-	<div th:each="fiveRules : ${fiveRulesRepo}">
+	<div th:each="fiveRules : ${fiveRulesRepo}" class="rule-list">
 		<p th:text="${fiveRules.FiveRulesSyllogismName}"></p>
 		<p th:text="${fiveRules.Rule1}"></p>
 		<p th:text="${fiveRules.Rule2}"></p>
 		<p th:text="${fiveRules.Rule3}"></p>
 		<p th:text="${fiveRules.Rule4}"></p>
 		<p th:text="${fiveRules.Rule5}"></p>
+		<p th:text="${fiveRules.Validity}"></p>
 	</div>
 </div>	
 

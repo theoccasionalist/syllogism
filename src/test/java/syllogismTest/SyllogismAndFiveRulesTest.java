@@ -32,7 +32,7 @@ public class SyllogismAndFiveRulesTest {
 	}
 	
 	@Test
-	public void Rule1ShouldPassForAAA1andEEE4() {
+	public void rule1ShouldPassForAAA1andEEE4() {
 		AProposition testMajor = new AProposition();
 		AProposition testMinor = new AProposition();
 		AProposition testConclusion = new AProposition();
@@ -55,7 +55,7 @@ public class SyllogismAndFiveRulesTest {
 
 	
 	@Test
-	public void Rule1ShouldFailForIII3andAAA2() {
+	public void rule1ShouldFailForIII3andAAA2() {
 		IProposition testMajor = new IProposition();
 		IProposition testMinor = new IProposition();
 		IProposition testConclusion = new IProposition();
@@ -76,7 +76,7 @@ public class SyllogismAndFiveRulesTest {
 	}
 	
 	@Test
-	public void Rule2ShouldPassForAAA1AndIII3AndEEE2() {
+	public void rule2ShouldPassForAAA1AndIII3AndEEE2() {
 		AProposition testMajor = new AProposition();
 		AProposition testMinor = new AProposition();
 		AProposition testConclusion = new AProposition();
@@ -105,7 +105,7 @@ public class SyllogismAndFiveRulesTest {
 	}
 	
 	@Test
-	public void Rule2ShouldFailForEIA1AndIIO3AndAAE3() {
+	public void rule2ShouldFailForEIA1AndIIO3AndAAE3() {
 		EProposition testMajor = new EProposition();
 		IProposition testMinor = new IProposition();
 		AProposition testConclusion = new AProposition();
@@ -134,7 +134,7 @@ public class SyllogismAndFiveRulesTest {
 	}
 	
 	@Test
-	public void Rule3ShouldRPassForAIO4andEIA3() {
+	public void rule3ShouldRPassForAIO4andEIA3() {
 		AProposition testMajor = new AProposition();
 		IProposition testMinor = new IProposition();
 		OProposition testConclusion = new OProposition();
@@ -155,7 +155,7 @@ public class SyllogismAndFiveRulesTest {
 	}
 	
 	@Test
-	public void Rule3ShouldFailForEEI2andOOA4() {
+	public void rule3ShouldFailForEEI2andOOA4() {
 		EProposition testMajor = new EProposition();
 		EProposition testMinor = new EProposition();
 		IProposition testConclusion = new IProposition();
@@ -176,7 +176,7 @@ public class SyllogismAndFiveRulesTest {
 	}
 	
 	@Test
-	public void Rule4ShouldPassForEI01andAAI3() {
+	public void rule4ShouldPassForEI01andAAI3() {
 		EProposition testMajor = new EProposition();
 		IProposition testMinor = new IProposition();
 		OProposition testConclusion = new OProposition();
@@ -198,7 +198,7 @@ public class SyllogismAndFiveRulesTest {
 	}
 	
 	@Test
-	public void Rule4ShouldFailForOAA2andAAE1() {
+	public void rule4ShouldFailForOAA2andAAE1() {
 		OProposition testMajor = new OProposition();
 		AProposition testMinor = new AProposition();
 		AProposition testConclusion = new AProposition();
@@ -220,7 +220,7 @@ public class SyllogismAndFiveRulesTest {
 	
 		
 	@Test
-	public void Rule5ShouldPassForBothAII2AndOOE4() {
+	public void rule5ShouldPassForBothAII2AndOOE4() {
 		AProposition testMajor1 = new AProposition();
 		IProposition testMinor1 = new IProposition();
 		IProposition testConclusion1 = new IProposition();
@@ -241,7 +241,7 @@ public class SyllogismAndFiveRulesTest {
 	}
 	
 	@Test
-	public void Rule5ShouldFailForBothAAI1AndEEO3() {
+	public void rule5ShouldFailForBothAAI1AndEEO3() {
 		AProposition testMajor1 = new AProposition();
 		AProposition testMinor1 = new AProposition();
 		IProposition testConclusion1 = new IProposition();
@@ -259,6 +259,45 @@ public class SyllogismAndFiveRulesTest {
 		
 		assertEquals("Rule 5: Fails", testValue1);
 		assertEquals("Rule 5: Fails", testValue2);
+	}
+	
+	@Test
+	public void shouldReturnInvalidForEEO3() {
+		EProposition testMajor = new EProposition();
+		EProposition testMinor = new EProposition();
+		OProposition testConclusion = new OProposition();
+		Syllogism testSyllogism = new Syllogism(testMajor, testMinor, testConclusion, "3");
+		
+		FiveRules testRules = new FiveRules(testSyllogism);
+		String testValue = testRules.getValidity();
+		
+		assertEquals("Invalid", testValue);
+	}
+	
+	@Test
+	public void shouldReturnConditionallyValidForAAI1() {
+		AProposition testMajor = new AProposition();
+		AProposition testMinor = new AProposition();
+		IProposition testConclusion = new IProposition();
+		Syllogism testSyllogism = new Syllogism(testMajor, testMinor, testConclusion, "1");
+		
+		FiveRules testRules = new FiveRules(testSyllogism);
+		String testValue = testRules.getValidity();
+		
+		assertEquals("Conditionally Valid", testValue);
+	}
+	
+	@Test
+	public void shouldReturnUnconditionallyValidForOAO3() {
+		OProposition testMajor = new OProposition();
+		AProposition testMinor = new AProposition();
+		OProposition testConclusion = new OProposition();
+		Syllogism testSyllogism = new Syllogism(testMajor, testMinor, testConclusion, "3");
+		
+		FiveRules testRules = new FiveRules(testSyllogism);
+		String testValue = testRules.getValidity();
+		
+		assertEquals("Unconditionally Valid", testValue);
 	}
 		
 	@Test
