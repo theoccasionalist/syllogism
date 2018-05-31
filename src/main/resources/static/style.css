@@ -1,1 +1,18 @@
-
+ .name {
+ 	background-color: light-green;
+ 	width: 3rem;
+ 	text-align: center;
+ }
+ 
+ .rule-list { 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 3rem;
+    background-color: blue;
+    border-radius: 10px;
+    margin: 5%;
+ }
+ 
+ .rule-list p {
+ 	margin: 1rem;
+ }
