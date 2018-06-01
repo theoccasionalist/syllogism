@@ -1,14 +1,57 @@
- .name {
- 	background-color: light-green;
- 	width: 3rem;
+ html {
+ 	background-color: #d1d7d8;
+ }
+ 
+ h1 {
  	text-align: center;
+ }
+ 
+ label {
+ 	background-color: #e1aadc;
+ 	padding: 4px;
+  	border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+ }
+ 
+ select {
+ 	margin-left: -112px;
+ }
+ 
+ #inline {
+	 display: flex;
+	 flex-direction: row;
+	 justify-content: space-between;
+	 padding-bottom: 5rem;
+ }
+ 
+ 
+ input {
+	 border-radius: 10px;
+	 background-color: #fb396a;
+	 padding: 1.5rem;
+	 margin-bottom: 5rem;
+	 display:block;
+	 margin-left: auto;
+	 margin-right: auto;
+	 font-size: 20px;
+ }
+ 
+ .name {
+ 	background-color: #13aca5;
+ 	width: 8rem;
+ 	text-align: center;
+ 	border-radius: 10px;
+ 	padding: 2px;
+ 	display: block;
+	margin-left: auto;
+	margin-right: auto;
  }
  
  .rule-list { 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 3rem;
-    background-color: blue;
+    background-color: grey;
     border-radius: 10px;
     margin: 5%;
  }

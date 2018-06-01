@@ -8,11 +8,15 @@
 </head>
 <body class="body">
 	<header>
-		<h1>Syllogisms</h1>
+		<h1>Syllogism Validity Tester</h1>
 	</header>
 <main>
+
 <form action="/add-syllogism" class="input">
 
+
+
+<div id="inline">
 	<label for="major-premise">Major Premise Proposition Type:</label>
 	<select class="major-premise" name="majorPremiseInput" required="true">
 		<option selected="major-premise" disabled="true" hidden="true" value="">Select...</option>
@@ -22,7 +26,7 @@
 		<option value="O">O</option>
 	</select>
 
-	<br/>
+
 
 	<label for="minor-premise">Minor Premise Proposition Type:</label>
 	<select class="minor-premise" name="minorPremiseInput" required="true">
@@ -33,7 +37,7 @@
 		<option value="O">O</option>
 	</select>
 
-	<br/>
+	
 
 	<label for="conclusion">Conclusion Proposition Type:</label>
 	<select class="conclusion" name="conclusionInput" required="true">
@@ -44,7 +48,7 @@
 		<option value="O">O</option>
 	</select>
 
-	<br/>
+
 
 	<label for="figure">Figure:</label>
 	<select class="figure" name="figure" required="true">
@@ -55,22 +59,26 @@
 		<option value="4">4</option>
 	</select>
 	
-	<br/>
 	
-	<input type="submit"></input>
+	
+</div>
+	
+<input type="submit" value="Submit Syllogism"></input>
 
 </form>
 
 <div id="container">	
 	<div th:each="fiveRules : ${fiveRulesRepo}">
-		<p th:text="${fiveRules.FiveRulesSyllogismName}" class="name"></p>
+		<div class="name">
+			<p th:text="'Name: ' + ${fiveRules.FiveRulesSyllogismName}"></p>
+		</div>
 		<div class="rule-list">
 			<p th:text="${fiveRules.Rule1}"></p>
 			<p th:text="${fiveRules.Rule2}"></p>
 			<p th:text="${fiveRules.Rule3}"></p>
 			<p th:text="${fiveRules.Rule4}"></p>
 			<p th:text="${fiveRules.Rule5}"></p>
-			<p th:text="${fiveRules.Validity}"></p>
+			<p th:text="'Validity: ' + ${fiveRules.Validity}"></p>
 		</div>
 	</div>
 </div>	
