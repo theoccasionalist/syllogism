@@ -15,7 +15,7 @@ I Propositions are of the form: Some S are P.
 O Propositions are of the form: Some S are not P.
 
 
-Where S is the subject, P the predicate, and M the middle term, the four figures are: 
+Where S is the subject of the conclusion, P the predicate of the conclusion, and M the middle term, the four figures are: 
 
 Figure 1: 
 
